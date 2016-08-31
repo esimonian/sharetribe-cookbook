@@ -7,15 +7,15 @@ user = node[:sharetribe][:app][:user]
 group = node[:sharetribe][:app][:group]
 
 # Another option
-bash 'Install ruby 2.1.2 from source' do
+bash 'Install ruby 2.3.1 from source' do
   not_if { File.exists?('/usr/local/bin/ruby') }
   cwd "/tmp"
-  creates '/usr/local/lib/ruby/2.1.2'
+  creates '/usr/local/lib/ruby/2.3.1'
   code <<-EOH
-  wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
+  wget http://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz
 
-  tar -xvzf ruby-2.1.2.tar.gz
-  cd ruby-2.1.2/
+  tar -xvzf ruby-2.3.1.tar.gz
+  cd ruby-2.3.1/
 
   ./configure --prefix=/usr/local
   make
